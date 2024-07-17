@@ -41,6 +41,7 @@ function Header() {
       <div className="logo">Носки, носочки</div>
       <nav className="header-nav">
         { pathname === '/' && <button className="header-btn" onClick={() => navigate('/profile')}>Личный кабинет</button> }
+        { pathname === '/login' && <button className="header-btn" onClick={() => navigate('/editsock')}>Создать носок</button> }
         { pathname === '/profile' && <button className="header-btn" onClick={logout}>Выйти из учётной записи</button> }
         { pathname === '/profile' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }
         { pathname === '/login' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }

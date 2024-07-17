@@ -5,6 +5,9 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import { useEffect, useState } from "react";
 import Root from "./Root";
 import axiosInstance from "./axiosInstance";
+import Basket from "./pages/Count/Basket";
+import SockPage from "./pages/SockPage/SockPage";
+import EditSock from "./components/EditSock/EditSock";
 
 function App() {
   const [user, setUser] = useState();
@@ -32,6 +35,22 @@ function App() {
         {
           path: "/",
           element: <LoginPage user={user} setUser={setUser} />,
+        },
+        {
+          path: "/basket",
+          element: <Basket user={user} setUser={setUser}/>,
+        },
+        {
+          path: "/sock/:id",
+          element: <SockPage user={user} setUser={setUser}/>,
+        },
+        {
+          path: "/editsock",
+          element: <EditSock user={user} setUser={setUser}/>,
+        },
+        {
+          path: "/updateSock/:id",
+          element: <EditSock user={user} setUser={setUser}/>,
         },
       ],
     },
