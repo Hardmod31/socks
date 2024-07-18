@@ -5,6 +5,7 @@ import axios from "axios";
 import axiosInstance from '../../axiosInstance.js';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Sock.css'
+import SvgSock from '../SvgSock/SvgSock.jsx';
 
 export default function Sock({presentSock, setPresentSock}) {
   const { refreshToken } = getAuthCookies();
@@ -129,7 +130,8 @@ export default function Sock({presentSock, setPresentSock}) {
           key={elem.id}
         >
           <div>
-            <img 
+          <SvgSock color={elem.color} pattern={elem.pattern} img={elem.img}></SvgSock>
+            {/* <img 
               className='oneSockImg'
               style={{ width: "150px", height: "180px" }} 
               src={elem.img} 
@@ -137,7 +139,7 @@ export default function Sock({presentSock, setPresentSock}) {
             />
             <br />
             <p className='oneSockP'>{elem.color}</p>
-            <p className='oneSockP'>{elem.pattern}</p>
+            <p className='oneSockP'>{elem.pattern}</p> */}
             <p className='oneSockP'>{elem.price}</p>
             {pathname !== "/basket" && <button onClick={() => addSockToBasket(elem.id)}>в корзину</button>}
             {pathname === "/basket" && <button onClick={() => deleteSock(elem.id)}>delete</button>}
