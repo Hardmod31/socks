@@ -4,6 +4,7 @@ import axios from 'axios';
 import { getAuthCookies } from '../../utils/utility';
 import axiosInstance from "../../axiosInstance";
 import Sock from "../../components/Sock/Sock";
+import './Favorites.css';
 
 
 export default function Favorites() {
