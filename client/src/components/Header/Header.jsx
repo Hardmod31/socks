@@ -11,7 +11,7 @@ function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
-  const { refreshToken } = getAuthCookies();
+  const { accessToken } = getAuthCookies();
   const [userState, setUserState] = useState(null);
 
   const getUserData = (token) => {
@@ -23,7 +23,7 @@ function Header() {
   };
 
   useEffect(() => {
-    getUserData(refreshToken);
+    getUserData(accessToken);
   }, []);
 
   const logout = async () => {
