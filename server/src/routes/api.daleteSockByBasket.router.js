@@ -25,4 +25,14 @@ router.delete('/api/deleteSock', async (req, res) => {
     }
 });
 
+router.delete('/api/clearBasket', async (req, res) => {
+    try {
+      const { userId } = req.query;
+      await Basket.destroy({ where: { userId: userId } });
+      return res.status(200).json({ message: 'ok', status: 200 });
+    } catch (error) {
+      return res.status(500).json({ message: error.message, status: 500 });
+    }
+  });
+
 module.exports = router;

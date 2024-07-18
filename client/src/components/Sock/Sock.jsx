@@ -99,17 +99,19 @@ export default function Sock({presentSock, setPresentSock}) {
   };
 
   const updateSockQuantity = async (sockId, action) => {
+    console.log(sockId, action);
     const decoded = jwtDecode(refreshToken);
     const { user } = decoded;
-    await axios.put(
+    const sockDto = await axios.put(
       'http://localhost:3000/api/updateSockQuantity',
-      { params: {
+      { data: {
         sockId: sockId,
         userId: user.id,
         action: action,
       }
     }
     );
+    console.log(sockDto);
     const updatedSock = presentSock.find(elem => elem.id === sockId);
     if (updatedSock) {
       if (action === 'increment') {
@@ -121,7 +123,22 @@ export default function Sock({presentSock, setPresentSock}) {
     }
   };
 
+  const clearBasket = async () => {
+    const decoded = jwtDecode(refreshToken);
+    const { user } = decoded;
+    await axios.delete(
+      'http://localhost:3000/api/clearBasket',
+      { 
+        params: {
+          userId: user.id,
+        },
+      }
+    );
+    setPresentSock([]);
+  };
+
   return (
+    <div>
     <ul className='ulSock'>
       {presentSock.map((elem) => (
         <li 
@@ -148,7 +165,7 @@ export default function Sock({presentSock, setPresentSock}) {
             {pathname !== "/basket" && <button onClick={handleUpdate}>Изменить</button>}
             {pathname !== "/basket" && <button onClick={deleteFullSock}>Удалить</button>}
             {pathname !== "/basket" && <button onClick={() => navigate(`/sock/${elem.id}`)}>Детали</button>}
-              <div>
+              <div className='flexStroke'>
                 <button onClick={() => updateSockQuantity(elem.id, 'increment')}>+++</button>
                 <p className='oneSockP'>{elem.quantity}</p>
                 <button onClick={() => updateSockQuantity(elem.id, 'decrement')}>---</button>
@@ -157,5 +174,7 @@ export default function Sock({presentSock, setPresentSock}) {
         </li>
       ))}
     </ul>
+    {pathname === "/basket" && <button className='oformit' onClick={clearBasket}>Оформить</button> }
+   </div>
   );
 }
