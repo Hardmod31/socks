@@ -6,13 +6,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './Sock.css'
 
 export default function Sock({presentSock, setPresentSock}) {
-  const { refreshToken } = getAuthCookies();
+  const { accessToken } = getAuthCookies();
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
 
   const addSockToBasket = async () => {
-    const decoded = jwtDecode(refreshToken);
+    const decoded = jwtDecode(accessToken);
     const { user } = decoded;
     await axios.post(
       'http://localhost:3000/api/addsock/sock',
@@ -31,7 +31,7 @@ export default function Sock({presentSock, setPresentSock}) {
   }
 
   const deleteSock = async () => {
-    const decoded = jwtDecode(refreshToken);
+    const decoded = jwtDecode(accessToken);
     const { user } = decoded;
     const sock_id = presentSock.find(elem => elem.id).id;
     await axios.delete(
@@ -47,7 +47,7 @@ export default function Sock({presentSock, setPresentSock}) {
   };
 
   const deleteFullSock = async () => {
-    const decoded = jwtDecode(refreshToken);
+    const decoded = jwtDecode(accessToken);
     const { user } = decoded;
     const sock_id = presentSock.find(elem => {
       return elem.id}).id;

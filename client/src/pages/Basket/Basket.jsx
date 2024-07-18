@@ -3,19 +3,20 @@ import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 import { getAuthCookies } from '../../utils/utility';
 import Sock from '../../components/Sock/Sock';
+import './Basket.css'
 
 export default function Basket() {
-  const { refreshToken } = getAuthCookies();
+  const { accessToken } = getAuthCookies();
 
   const [presentSock, setPresentSock] = useState([]);
 
   const getAllSocks = () => {
-    const decoded = jwtDecode(refreshToken);
+    const decoded = jwtDecode(accessToken);
     const { user } = decoded;
     axios.get(
       `http://localhost:3000/api/all/basket`,
       { 
-        params: { userId: userId },
+        params: { userId: user.id },
         withCredentials: true
       },
     )
@@ -44,6 +45,9 @@ export default function Basket() {
       <div className="homeSock">
         <Sock presentSock={presentSock} setPresentSock={setPresentSock} />
       </div>
+      <p className="homeSock">
+        kek
+      </p>
     </div>
   );
 };

@@ -1,12 +1,13 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {setAccessToken} from "./axiosInstance";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import { useEffect, useState } from "react";
 import Root from "./Root";
 import axiosInstance from "./axiosInstance";
 import Favorites from "./pages/Favorites/Favorites";
-import Basket from "./pages/Count/Basket";
+import Basket from "./pages/Basket/Basket";
 import SockPage from "./pages/SockPage/SockPage";
 import EditSock from "./components/EditSock/EditSock";
 
