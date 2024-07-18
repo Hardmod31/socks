@@ -8,7 +8,7 @@ import { getAuthCookies } from '../../utils/utility';
 import { jwtDecode } from 'jwt-decode';
 import './SockPage.css'
 
-export default function SockPage({user, socks, addToFavorites}) {
+export default function SockPage({user, socks}) {
   const { accessToken } = getAuthCookies();
   const params = useParams();
   const [userState, setUserState] = useState({});

@@ -2,6 +2,7 @@ import React from 'react'
 import { getAuthCookies } from "../../utils/utility.js";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import axiosInstance from '../../axiosInstance.js';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Sock.css'
 
@@ -16,6 +17,7 @@ export default function Sock({presentSock, setPresentSock}) {
     const { user } = decoded;
     console.log(presentSock);
     await axios.post(
+
       'http://localhost:3000/api/addsocks/basket',
       { 
         data: {
@@ -62,6 +64,39 @@ export default function Sock({presentSock, setPresentSock}) {
     );
   };
 
+  const addToFavorites = async (sockId) => {
+    const decoded = jwtDecode(accessToken);
+    const { user } = decoded;
+    try {
+        await axios.post(
+          'http://localhost:3000/api/addsocks/favorites',
+          {
+            sockId: sockId,
+            userId: user.id,
+          }
+        );
+     
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteFavorite = async (sockId) => {
+    const decoded = jwtDecode(accessToken);
+    const { user } = decoded;
+     try {
+          await axios.delete(
+      'http://localhost:3000/api/delete/favorites',
+      { 
+          sockId: sockId,
+          userId: user.id,
+      }
+    );
+  } catch (error) {
+   console.error(error);
+  }
+  };
+
   return (
     <ul className='ulSock'>
       {presentSock.map((elem) => (
@@ -84,6 +119,8 @@ export default function Sock({presentSock, setPresentSock}) {
             <p className='oneSockP'>{elem.quantity}</p>
             {pathname !== "/basket" && <button onClick={() => addSockToBasket(elem.id)}>в корзину</button>}
             {pathname === "/basket" && <button onClick={() => deleteSock(elem.id)}>delete</button>}
+            {pathname !== "/favorites" && <button onClick={() => addToFavorites(elem.id)}>В избранное</button>}
+            {pathname !== "/favorites" && <button onClick={() => deleteFavorite(elem.id)}>Удалить</button>}
             {pathname !== "/basket" && <button onClick={handleUpdate}>Изменить</button>}
             {pathname !== "/basket" && <button onClick={deleteFullSock}>Удалить</button>}
             {pathname !== "/basket" && <button onClick={() => navigate(`/sock/${elem.id}`)}>Детали</button>}
