@@ -42,7 +42,6 @@ export default function SockPage({user, socks, addToFavorites}) {
         <p className='descSock'>{sockInfo.price}</p>
         <p className='descSock'>{sockInfo.quantity}</p>
         <p className='descSock'>{sockInfo.color}</p>
-        {user ? <button onClick={() => addToFavorites(sockInfo)}>В избранное</button> : <></>}
       </div>
     </div>
   );
