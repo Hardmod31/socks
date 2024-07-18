@@ -10,6 +10,7 @@ import Favorites from "./pages/Favorites/Favorites";
 import Basket from "./pages/Basket/Basket";
 import SockPage from "./pages/SockPage/SockPage";
 import EditSock from "./components/EditSock/EditSock";
+import HomePage from "./pages/HomePage/HomePage";
 
 
 function App() {
@@ -75,6 +76,10 @@ function App() {
         {
           path: "/basket",
           element: <Basket user={user} setUser={setUser}/>,
+        },
+        {
+          path: "/homepage",
+          element: <HomePage user={user} setUser={setUser}/>,
         },
         {
           path: "/sock/:id",

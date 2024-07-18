@@ -82,7 +82,7 @@ export default function Sock({presentSock, setPresentSock}) {
             <p className='oneSockP'>{elem.name}</p>
             <p className='oneSockP'>{elem.descryption}</p>
             {pathname !== "/basket" && <button onClick={addSockToBasket}>в корзину</button>}
-            {pathname === "/basket" && <button onClick={deleteSock}>delete</button>}
+            {pathname === "/homepage" && <button onClick={deleteSock}>delete</button>}
             {pathname !== "/basket" && <button onClick={handleUpdate}>Изменить</button>}
             {pathname !== "/basket" && <button onClick={deleteFullSock}>Удалить</button>}
             {pathname !== "/basket" && <button onClick={() => navigate(`/sock/${elem.id}`)}>Детали</button>}
