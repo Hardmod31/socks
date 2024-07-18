@@ -8,6 +8,7 @@ import axiosInstance from "./axiosInstance";
 import Basket from "./pages/Count/Basket";
 import SockPage from "./pages/SockPage/SockPage";
 import EditSock from "./components/EditSock/EditSock";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   const [user, setUser] = useState();
@@ -43,6 +44,10 @@ function App() {
         {
           path: "/sock/:id",
           element: <SockPage user={user} setUser={setUser}/>,
+        },
+        {
+          path: "/homepage",
+          element: <HomePage user={user} setUser={setUser}/>,
         },
         {
           path: "/editsock",
