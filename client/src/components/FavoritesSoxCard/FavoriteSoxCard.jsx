@@ -1,13 +1,13 @@
 import axiosInstance from "../../axiosInstance";
 
-function OneCardForFavorite({ socks, user, setFavorites }) {
+function FavoriteSoxCard({ socks, user, setFavorites }) {
  
 
   async function deleteFromFavorite() {
     if (user) {
       await axiosInstance.delete(`http://localhost:3000/api/favorites`, {
         data: {
-          stoneId: socks.id,
+          sockId: socks.id,
           userId: user.id,
         },
       });
@@ -25,4 +25,4 @@ function OneCardForFavorite({ socks, user, setFavorites }) {
   );
 }
 
-export default OneCardForFavorite;
+export default FavoriteSoxCard;

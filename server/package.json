@@ -9,6 +9,7 @@
     "mig": "npx sequelize db:migrate",
     "seed": "npx sequelize db:seed:all",
     "remigrate": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate && npx sequelize db:seed:all",
+    "db:reset": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
     "dropDB": "npx sequelize db:drop"
   },
   "keywords": [],
