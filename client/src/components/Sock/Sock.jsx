@@ -11,6 +11,7 @@ export default function Sock({presentSock, setPresentSock}) {
   const location = useLocation();
   const { pathname } = location;
 
+
   const addSockToBasket = async () => {
     const decoded = jwtDecode(refreshToken);
     const { user } = decoded;

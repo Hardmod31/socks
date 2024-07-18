@@ -4,7 +4,7 @@ const { verifyAccessToken } = require('../middlewares/verifyToken');
 const { checkFavorites } = require('../middlewares/checkFavorites');
 
 router
-  .post('/api', verifyAccessToken, checkFavorites, async (req, res) => {
+  .post('/api/favorites', verifyAccessToken, checkFavorites, async (req, res) => {
     const { userId, sockId } = req.body;
     try {
       const sox = await Favorite.create({ userId, sockId });
@@ -15,7 +15,7 @@ router
     }
   })
 
-  .delete('/api', verifyAccessToken, async (req, res) => {
+  .delete('/api/favorites', verifyAccessToken, async (req, res) => {
     const { userId, sockId } = req.body;
     try {
       await Favorite.destroy({ where: { userId, sockId } });
@@ -26,7 +26,7 @@ router
     }
   })
 
-  .get('/api/:id', async (req, res) => {
+  .get('/api/favorites/:id', async (req, res) => {
     try {
       const { id } = req.params;
       const sox = await Sock.findAll({
