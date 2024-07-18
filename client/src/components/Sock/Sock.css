@@ -102,3 +102,17 @@
   pointer-events: none;
   opacity: 0.5;
 }
+
+.flexStroke {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.oformit {
+  width: 80px;
+  height: 50px;
+  position: fixed;
+  right: 350px;
+  bottom: 150px;
+}
