@@ -2,10 +2,12 @@ import React from 'react'
 import { getAuthCookies } from "../../utils/utility.js";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import axiosInstance from '../../axiosInstance.js';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Sock.css'
 
-export default function Sock({presentSock, setPresentSock}) {
+
+export default function Sock({presentSock, setPresentSock }) {
   const { accessToken } = getAuthCookies();
   const navigate = useNavigate();
   const location = useLocation();
@@ -16,7 +18,7 @@ export default function Sock({presentSock, setPresentSock}) {
     const decoded = jwtDecode(accessToken);
     const { user } = decoded;
     await axios.post(
-      'http://localhost:3000/api/addsock/sock',
+      'http://localhost:3000/api/addsocks/sock',
       { 
         data: {
           sockId: presentSock.find(elem => elem.id).id,
@@ -63,6 +65,39 @@ export default function Sock({presentSock, setPresentSock}) {
       }
     );
   };
+  const addToFavorites = async (sockId) => {
+    const decoded = jwtDecode(accessToken);
+    const { user } = decoded;
+    try {
+        await axios.post(
+          'http://localhost:3000/api/addsocks/favorites',
+          {
+            sockId: sockId,
+            userId: user.id,
+          }
+        );
+     
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteFavorite = async (sockId) => {
+    const decoded = jwtDecode(accessToken);
+    const { user } = decoded;
+     try {
+          await axios.delete(
+      'http://localhost:3000/api/delete/favorites',
+      { 
+          sockId: sockId,
+          userId: user.id,
+      }
+    );
+  } catch (error) {
+   console.error(error);
+  }
+  };
+
   return (
     <ul className='ulSock'>
       {presentSock.map((elem) => (
@@ -82,6 +117,8 @@ export default function Sock({presentSock, setPresentSock}) {
             <p className='oneSockP'>{elem.name}</p>
             <p className='oneSockP'>{elem.descryption}</p>
             {pathname !== "/basket" && <button onClick={addSockToBasket}>в корзину</button>}
+            {pathname !== "/favorites" && <button onClick={() => addToFavorites(elem.id)}>В избранное</button>}
+            {pathname !== "/favorites" && <button onClick={() => deleteFavorite(elem.id)}>Удалить</button>}
             {pathname === "/homepage" && <button onClick={deleteSock}>delete</button>}
             {pathname !== "/basket" && <button onClick={handleUpdate}>Изменить</button>}
             {pathname !== "/basket" && <button onClick={deleteFullSock}>Удалить</button>}
