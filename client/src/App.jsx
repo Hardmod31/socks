@@ -5,12 +5,15 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import { useEffect, useState } from "react";
 import Root from "./Root";
 import axiosInstance from "./axiosInstance";
+import Favorites from "./pages/Favorites/Favorites";
 import Basket from "./pages/Count/Basket";
 import SockPage from "./pages/SockPage/SockPage";
 import EditSock from "./components/EditSock/EditSock";
 
+
 function App() {
   const [user, setUser] = useState();
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     axiosInstance(`http://localhost:3000/tokens/refresh`).then((res) => {
@@ -37,6 +40,15 @@ function App() {
           element: <LoginPage user={user} setUser={setUser} />,
         },
         {
+          path: "/favorites",
+          element: (
+            <Favorites
+              user={user}
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
+          ),
+
           path: "/basket",
           element: <Basket user={user} setUser={setUser}/>,
         },
