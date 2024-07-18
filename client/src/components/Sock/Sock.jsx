@@ -97,6 +97,29 @@ export default function Sock({presentSock, setPresentSock}) {
   }
   };
 
+  const updateSockQuantity = async (sockId, action) => {
+    const decoded = jwtDecode(refreshToken);
+    const { user } = decoded;
+    await axios.put(
+      'http://localhost:3000/api/updateSockQuantity',
+      { params: {
+        sockId: sockId,
+        userId: user.id,
+        action: action,
+      }
+    }
+    );
+    const updatedSock = presentSock.find(elem => elem.id === sockId);
+    if (updatedSock) {
+      if (action === 'increment') {
+        updatedSock.quantity += 1;
+      } else if (action === 'decrement') {
+        updatedSock.quantity -= 1;
+      }
+      setPresentSock([...presentSock]);
+    }
+  };
+
   return (
     <ul className='ulSock'>
       {presentSock.map((elem) => (
@@ -116,7 +139,6 @@ export default function Sock({presentSock, setPresentSock}) {
             <p className='oneSockP'>{elem.color}</p>
             <p className='oneSockP'>{elem.pattern}</p>
             <p className='oneSockP'>{elem.price}</p>
-            <p className='oneSockP'>{elem.quantity}</p>
             {pathname !== "/basket" && <button onClick={() => addSockToBasket(elem.id)}>в корзину</button>}
             {pathname === "/basket" && <button onClick={() => deleteSock(elem.id)}>delete</button>}
             {pathname !== "/favorites" && <button onClick={() => addToFavorites(elem.id)}>В избранное</button>}
@@ -124,6 +146,11 @@ export default function Sock({presentSock, setPresentSock}) {
             {pathname !== "/basket" && <button onClick={handleUpdate}>Изменить</button>}
             {pathname !== "/basket" && <button onClick={deleteFullSock}>Удалить</button>}
             {pathname !== "/basket" && <button onClick={() => navigate(`/sock/${elem.id}`)}>Детали</button>}
+              <div>
+                <button onClick={() => updateSockQuantity(elem.id, 'increment')}>+++</button>
+                <p className='oneSockP'>{elem.quantity}</p>
+                <button onClick={() => updateSockQuantity(elem.id, 'decrement')}>---</button>
+              </div>
           </div>
         </li>
       ))}

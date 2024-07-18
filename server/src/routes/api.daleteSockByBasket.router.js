@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 /* eslint-disable import/newline-after-import */
 /* eslint-disable indent */
 const express = require('express');

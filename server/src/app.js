@@ -14,6 +14,7 @@ const oneSockById = require("./routes/api.oneSockById.router");
 const userSocks = require("./routes/api.userSocks.router");
 const favoritesRouter = require('./routes/favorites.api.router');
 const deleteSockByBasket = require('./routes/api.daleteSockByBasket.router');
+const updateSockQuantity = require("./routes/api.update.quantity")
 
 const app = express();
 const { PORT } = process.env;
@@ -38,6 +39,7 @@ app.use("/", basketSock);
 app.use("/", oneSockById);
 app.use("/", userSocks);
 app.use('/', favoritesRouter);
-app.use("/", deleteSockByBasket)
+app.use("/", deleteSockByBasket);
+app.use("/", updateSockQuantity)
 
 module.exports = app;
