@@ -3,11 +3,12 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'
+import axiosInstance from '../../axiosInstance';
 import { getAuthCookies } from '../../utils/utility';
 import { jwtDecode } from 'jwt-decode';
 import './SockPage.css'
 
-export default function SockPage() {
+export default function SockPage({user, socks, addToFavorites}) {
   const { accessToken } = getAuthCookies();
   const params = useParams();
   const [userState, setUserState] = useState({});
@@ -41,6 +42,7 @@ export default function SockPage() {
         <p className='descSock'>{sockInfo.price}</p>
         <p className='descSock'>{sockInfo.quantity}</p>
         <p className='descSock'>{sockInfo.color}</p>
+        {user ? <button onClick={() => addToFavorites(sockInfo)}>В избранное</button> : <></>}
       </div>
     </div>
   );
