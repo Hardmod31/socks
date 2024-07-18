@@ -13,7 +13,7 @@ function setAccessToken(newToken) {
 axiosInstance.interceptors.request.use((config) => {
   config.withCredentials = true;
   if (!config.headers.Authorization) {
-    config.headers.Authorization = `Whales ${accessToken}`;
+    config.headers.Authorization = `Jays ${accessToken}`;
   }
   return config;
 });

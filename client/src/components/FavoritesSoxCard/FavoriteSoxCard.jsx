@@ -13,7 +13,7 @@ function FavoriteSoxCard({ socks, user, setFavorites }) {
       });
       setFavorites((prev) => prev.filter((el) => el.id !== socks.id));
     } else {
-      alert("Вы не авторизованыыыыыыыыыыыы");
+      alert("Вы не авторизовы");
     }
   }
 
