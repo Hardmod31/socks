@@ -22,7 +22,7 @@ export default function Favorites({ user, favorites, setFavorites }) {
       {favorites.length ? (
         favorites.map((el) => (
           <FavoriteSoxCard
-            card={el}
+            socks={el}
             key={el.id}
             user={user}
             favorites={favorites}
