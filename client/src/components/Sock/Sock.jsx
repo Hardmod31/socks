@@ -142,7 +142,7 @@ export default function Sock({presentSock, setPresentSock}) {
             {pathname !== "/basket" && <button onClick={() => addSockToBasket(elem.id)}>в корзину</button>}
             {pathname === "/basket" && <button onClick={() => deleteSock(elem.id)}>delete</button>}
             {pathname !== "/favorites" && <button onClick={() => addToFavorites(elem.id)}>В избранное</button>}
-            {pathname !== "/favorites" && <button onClick={() => deleteFavorite(elem.id)}>Удалить</button>}
+            {pathname === "/favorites" && <button onClick={() => deleteFavorite(elem.id)}>Удалить</button>}
             {pathname !== "/basket" && <button onClick={handleUpdate}>Изменить</button>}
             {pathname !== "/basket" && <button onClick={deleteFullSock}>Удалить</button>}
             {pathname !== "/basket" && <button onClick={() => navigate(`/sock/${elem.id}`)}>Детали</button>}

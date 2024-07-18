@@ -9,10 +9,10 @@ const { Sock } = require('../../db/models/index');
 router.post('/api/add/sock', async (req, res) => {
     try {
       const { color, img, pattern, price, quantity, userId } = req.body.data;
-      if (!color || !img || !pattern || !price || !quantity || !userId) {
-        console.log(req.body);
-        return res.status(400).json({ message: 'All fields are required' });
-      }
+      // if (!color || !img || !pattern || !price || !quantity || !userId) {
+      //   console.log(req.body);
+      //   return res.status(400).json({ message: 'All fields are required' });
+      // }
       const sock = await Sock.create({
         color,
         img,
