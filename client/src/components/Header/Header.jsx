@@ -46,8 +46,18 @@ function Header() {
         { pathname === '/profile' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }
         { pathname === '/login' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }
         { pathname === '/registration' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }
+        { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/favorites')}>избранное</button> }
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/editsock')}>конструктор</button> }
+        { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
+        { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/editsock')}>конструктор</button> }
+        { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/homepage')}>главная</button> }
+        { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/favorites')}>избранное</button> }
+        { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/editsock')}>конструктор</button> }
+        { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/homepage')}>главная</button> }
+        { pathname === '/editsock' && <button className="header-btn" onClick={()=>navigate('/favorites')}>избранное</button> }
+        { pathname === '/editsock' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
+        { pathname === '/editsock' && <button className="header-btn" onClick={()=>navigate('/homepage')}>главная</button> }
       </nav>
     </div>
   );
