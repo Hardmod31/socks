@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Sock from "../../components/Sock/Sock";
+import Sock from "../../components/SvgSock/SvgSock";
 import designOptions from "../../constants/designs.json";
 
 const SockDesignGenerator = () => {
@@ -46,7 +46,7 @@ const SockDesignGenerator = () => {
         }}
       >
         <div style={{ height: "400px", width: "400px" }}>
-          <Sock color={color} pattern={pattern} img={img} />
+          <SvgSock color={color} pattern={pattern} img={img} />
         </div>
 
         {/* <label>

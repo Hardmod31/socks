@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Sock({ color, pattern, img }) {
+export default function SvgSock({ color, pattern, img }) {
   return (
     <svg
     //   width="500"
