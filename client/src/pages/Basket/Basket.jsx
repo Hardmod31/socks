@@ -24,11 +24,11 @@ export default function Basket() {
       const newData = data.data.baskets.map((elem) => {
         return {
           id: elem.id,
-          img: elem.img,
-          pattern: elem.pattern,
-          color: elem.color,
-          price: elem.price,
-          quantity: elem.quantity,
+          img: elem.Sock.img,
+          pattern: elem.Sock.pattern,
+          color: elem.Sock.color,
+          price: elem.Sock.price,
+          quantity: elem.Sock.quantity,
         }
       })
       setPresentSock(newData)
