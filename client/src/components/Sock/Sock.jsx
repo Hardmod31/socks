@@ -15,7 +15,7 @@ export default function Sock({presentSock, setPresentSock}) {
     const decoded = jwtDecode(accessToken);
     const { user } = decoded;
     await axios.post(
-      'http://localhost:3000/api/addsock/sock',
+      'http://localhost:3000/api/addsocks/basket',
       { 
         data: {
           sockId: presentSock.find(elem => elem.id).id,
