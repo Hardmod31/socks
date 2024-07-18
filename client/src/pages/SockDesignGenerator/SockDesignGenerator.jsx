@@ -63,7 +63,6 @@ const SockDesignGenerator = () => {
         userId: user.id,
       },
     });
-   
   };
 
   const addToFavorites = async () => {
@@ -81,14 +80,10 @@ const SockDesignGenerator = () => {
       },
     });
     try {
-        await axios.post(
-          'http://localhost:3000/api/addsocks/favorites',
-          {
-            sockId: addedSock.data.values.id,
-            userId: user.id,
-          }
-        );
-     
+      await axios.post("http://localhost:3000/api/addsocks/favorites", {
+        sockId: addedSock.data.values.id,
+        userId: user.id,
+      });
     } catch (error) {
       console.error(error);
     }
@@ -124,15 +119,17 @@ const SockDesignGenerator = () => {
         <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
           <label> Выберите цвет:</label>
           <div style={{ display: "flex", gap: "10px" }}>
-            {designOptions.color.map((color) => (
+            {designOptions.color.map((colorOption) => (
               <div
-                onClick={() => colorHandler(color)}
+                onClick={() => colorHandler(colorOption)}
                 style={{
-                  backgroundColor: color.name,
+                  backgroundColor: colorOption.name,
                   width: "30px",
                   height: "30px",
                   cursor: "pointer",
-                  border: "solid",
+                  // border: "solid",
+                  border: color === colorOption ? "solid black" : "solid #ccc",
+                  borderRadius: "50%",
                 }}
               />
             ))}
@@ -140,12 +137,15 @@ const SockDesignGenerator = () => {
 
           <label> Выберите узор:</label>
           <div style={{ display: "flex", gap: "10px" }}>
-            {designOptions.pattern.map((pattern) => (
+            {designOptions.pattern.map((patternOption) => (
               <div
-                onClick={() => patternHandler(pattern)}
+                onClick={() => patternHandler(patternOption)}
                 style={{
-                  backgroundImage: `url("/${pattern.name}")`,
-                  border: "solid",
+                  backgroundImage: `url("/${patternOption.name}")`,
+                  // border: "solid",
+                  border:
+                    pattern === patternOption ? "solid black" : "solid #ccc",
+                  borderRadius: "8px",
                   width: "100px",
                   height: "50px",
                   cursor: "pointer",
@@ -159,12 +159,14 @@ const SockDesignGenerator = () => {
 
           <label> Выберите изображение:</label>
           <div style={{ display: "flex", gap: "10px" }}>
-            {designOptions.img.map((img) => (
+            {designOptions.img.map((imgOption) => (
               <div
-                onClick={() => imgHandler(img)}
+                onClick={() => imgHandler(imgOption)}
                 style={{
-                  backgroundImage: `url("${img.name}")`,
-                  border: "solid",
+                  backgroundImage: `url("${imgOption.name}")`,
+                  // border: "solid",
+                  border: img === imgOption ? "solid black" : "solid #ccc",
+                  borderRadius: "8px",
                   width: "100px",
                   height: "50px",
                   cursor: "pointer",
@@ -175,16 +177,28 @@ const SockDesignGenerator = () => {
               />
             ))}
           </div>
-          <div>Срок изготовления: 3 дня</div>
-          <div>Итоговая стоимость: {price} ₽</div>
-          <button onClick={skipHandler} style={{ cursor: "pointer" }}>
+          <button
+            onClick={skipHandler}
+            style={{ cursor: "pointer", width: "30%" }}
+          >
             Сбросить дизайн
           </button>
-          <button onClick={addSockToBasket}>
-            Добавить в корзину
-          </button>
-          {/* <button style={{ cursor: "pointer" }}>Добавить в корзину</button> */}
-          <button onClick={addToFavorites} style={{ cursor: "pointer" }}>Добавить в избранное</button>
+          <br />
+          <div>Срок изготовления: 3 дня</div>
+          <div>Итоговая стоимость: {price} ₽</div>
+
+          <div style={{ display: "flex", gap: "3px" }}>
+            <button
+              onClick={addSockToBasket}
+              style={{ cursor: "pointer", width: "100%" }}
+            >
+              Добавить в корзину
+            </button>
+            {/* <button style={{ cursor: "pointer" }}>Добавить в корзину</button> */}
+            <button onClick={addToFavorites} style={{ cursor: "pointer" }}>
+              💙
+            </button>
+          </div>
         </div>
       </div>
     </>
