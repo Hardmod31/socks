@@ -1,0 +1,104 @@
+.normalSock {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 15px;
+  margin: 15px 15px 15px 0;
+  outline: none;
+  border: 1px solid #603913;
+  border-radius: 5px;
+  height: 45px;
+  width: 70%;
+  line-height: 0;
+  text-decoration: none;
+  color: #603913;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+.normalSockDesc {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 15px;
+  margin: 15px 15px 15px 0;
+  outline: none;
+  border: 1px solid #603913;
+  border-radius: 5px;
+  height: 45px;
+  width: 70%;
+  line-height: 0;
+  text-decoration: none;
+  color: #603913;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+.editTitle {
+  color: #603913;
+  max-height: 40px;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 1.3px 1.3px 2px #000000;
+  line-height: 40px;
+}
+
+.editBox {
+  backdrop-filter: blur(4px);
+  justify-content: space-around;
+  margin-top: 250px;
+  padding-left: 0px;
+  display: flex;
+  height: 450px;
+  width: 500px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.editBtn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  outline: none;
+  border: 1px solid #603913;
+  border-radius: 5px;
+  height: 46px;
+  width: 30%;
+  line-height: 0;
+  text-decoration: none;
+  color: #603913;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.editBtn:hover {
+  transform: translate(0, -2px);
+  box-shadow: 0 20px 30px 0 #603913;
+  background-color: #603913;
+  color: rgb(226, 218, 218);
+}
