@@ -1,21 +1,24 @@
 const router = require('express').Router();
-const { Sock, Favorite, User } = require('../../db/models');
-const { verifyAccessToken } = require('../middlewares/verifyToken');
-const { checkFavorites } = require('../middlewares/checkFavorites');
+const { Sock, Favorite } = require('../../db/models/index');
+// const { verifyAccessToken } = require('../middlewares/verifyToken');
+// const { checkFavorites } = require('../middlewares/checkFavorites');
 
 router
-  .post('/api/favorites', verifyAccessToken, checkFavorites, async (req, res) => {
-    const { userId, sockId } = req.body;
+  .post('/api/addsocks/favorites', async (req, res) => {
     try {
-      const sox = await Favorite.create({ userId, sockId });
-      res.json(sox);
+      const { sockId, userId } = req.body;
+      if (!sockId || !userId) {
+        return res.status(400).json({ message: 'sockId and userId are required', status: 400 });
+      }
+      const sock = await Favorite.create({ userId, sockId });
+      res.json(sock);
     } catch (error) {
       console.error(error);
       res.sendStatus(400);
     }
   })
 
-  .delete('/api/favorites', verifyAccessToken, async (req, res) => {
+  .delete('/api/delete/favorites', async (req, res) => {
     const { userId, sockId } = req.body;
     try {
       await Favorite.destroy({ where: { userId, sockId } });
@@ -26,14 +29,12 @@ router
     }
   })
 
-  .get('/api/favorites/:id', async (req, res) => {
+  .get('/api/all/favorites', async (req, res) => {
     try {
-      const { id } = req.params;
-      const sox = await Sock.findAll({
-        include: { model: User, where: { id }, required: true },
-      });
-      const data = sox.map((el) => el.get({ plain: true }));
-      res.json(data);
+      const { userId } = req.query;
+      // eslint-disable-next-line object-shorthand
+      const sox = await Sock.findAll({ where: { userId: userId } });
+      res.json({ sox, message: 'OK', status: 200 });
     } catch (error) {
       console.log(error);
       res.status(500).send(error.message);

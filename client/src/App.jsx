@@ -1,10 +1,12 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import { useEffect, useState } from "react";
 import Root from "./Root";
-import axiosInstance from "./axiosInstance";
+
+import axiosInstance, {setAccessToken} from "./axiosInstance";
 
 import SockDesignGenerator from "./pages/SockDesignGenerator/SockDesignGenerator";
 
@@ -19,7 +21,6 @@ import { setAccessToken } from "./axiosInstance";
 
 function App() {
   const [user, setUser] = useState();
-  const [favorites, setFavorites] = useState([]);
  
   useEffect(() => {
     axiosInstance(`http://localhost:3000/tokens/refresh`).then((res) => {
@@ -28,27 +29,7 @@ function App() {
     });
   }, []);
 
-  function addToFavorites(sock) {
-    if (user) {
-      console.log("Добавление в избранное:", sock);
-      axiosInstance.post(`http://localhost:3000/api/favorites`, {
-        sockId: sock.id,
-        userId: user.id,
-      }, {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
-      })
-      .then(response => {
-        console.log("Успешно добавлено в избранное:", response.data);
-      })
-      .catch(error => {
-        console.error("Ошибка при добавлении в избранное:", error);
-      });
-    } else {
-      alert("Вы не авторизованы");
-    }
-  }
+
 
   const router = createBrowserRouter([
     {
@@ -74,13 +55,10 @@ function App() {
         },
 {
           path: "/favorites",
-          element: (
+          element: 
             <Favorites
-              user={user}
-              favorites={favorites}
-              setFavorites={setFavorites}
+            user={user} setUser={setUser}
             />
-          ),
         },
         {
           path: "/basket",
@@ -92,7 +70,7 @@ function App() {
         },
         {
           path: "/sock/:id",
-          element: <SockPage user={user} setUser={setUser} addToFavorites={addToFavorites}/>,
+          element: <SockPage user={user} setUser={setUser}/>,
         },
         {
           path: "/editsock",
