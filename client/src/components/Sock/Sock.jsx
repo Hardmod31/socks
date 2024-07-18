@@ -80,7 +80,7 @@ export default function Sock({presentSock, setPresentSock}) {
             <br />
             <p className='oneSockP'>{elem.color}</p>
             <p className='oneSockP'>{elem.pattern}</p>
-            <p className='oneSockP'>{elem.descryppricetion}</p>
+            <p className='oneSockP'>{elem.price}</p>
             <p className='oneSockP'>{elem.quantity}</p>
             {pathname !== "/basket" && <button onClick={() => addSockToBasket(elem.id)}>в корзину</button>}
             {pathname === "/basket" && <button onClick={() => deleteSock(elem.id)}>delete</button>}

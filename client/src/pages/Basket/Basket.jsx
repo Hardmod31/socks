@@ -21,14 +21,14 @@ export default function Basket() {
       },
     )
     .then((data) => {
-      const newData = data.data.baskets.map((elem) => {
+      const newData = data.data.baskets.map((basket) => {
         return {
-          id: elem.id,
-          img: elem.img,
-          pattern: elem.pattern,
-          color: elem.color,
-          price: elem.price,
-          quantity: elem.quantity,
+          id: basket.Sock.id,
+          img: basket.Sock.img,
+          pattern: basket.Sock.pattern,
+          color: basket.Sock.color,
+          price: basket.Sock.price,
+          quantity: basket.Sock.quantity,
         }
       })
       setPresentSock(newData)
