@@ -39,7 +39,7 @@ function HomePage() {
       <main className="main">
         <div className="welcomeBanner">
           <p className="welcomeText">Самое время быть уникальным! Смоделируй свою любимую пару носков!</p>
-          <a href="/editsock" className="sockGeneratorLink">Генератор носков</a>
+          <a href="/createdesign" className="sockGeneratorLink">Генератор носков</a>
         </div>
         <div className="sockMenu">
           <div className="sockContainer">
