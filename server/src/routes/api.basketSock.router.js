@@ -13,8 +13,8 @@ router.get('/api/all/basket', async (req, res) => {
         where: { userId: userId },
         include: [{
           model: Sock,
-          attributes: ['id', 'img', 'pattern', 'color', 'price', 'quantity']
-        }]
+          attributes: ['id', 'img', 'pattern', 'color', 'price', 'quantity'],
+        }],
       });
       res.json({ baskets, message: 'OK', status: 200});
     } catch (error) {

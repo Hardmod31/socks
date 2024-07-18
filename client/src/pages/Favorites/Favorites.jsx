@@ -43,14 +43,11 @@ export default function Favorites() {
   }, [])
 
   return (
-    <div>
-       {presentSock.map((elem) => (
+    <div>  
           <Sock
-          key={elem.id}
             presentSock={presentSock}
             setPresentSock={setPresentSock}
           />
-        ))}
     </div>
   );
 }

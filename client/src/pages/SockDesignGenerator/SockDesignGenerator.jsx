@@ -57,14 +57,41 @@ const SockDesignGenerator = () => {
         userId: user.id,
       },
     });
-console.log(addedSock);
     await axios.post("http://localhost:3000/api/addsocks/basket", {
       data: {
         sockId: addedSock.data.values.id,
         userId: user.id,
       },
     });
-    console.log(data);
+   
+  };
+
+  const addToFavorites = async () => {
+    const decoded = jwtDecode(accessToken);
+    const { user } = decoded;
+
+    const addedSock = await axios.post("http://localhost:3000/api/add/sock", {
+      data: {
+        color: color.name,
+        img: img.name,
+        pattern: pattern.name,
+        price,
+        quantity: 1,
+        userId: user.id,
+      },
+    });
+    try {
+        await axios.post(
+          'http://localhost:3000/api/addsocks/favorites',
+          {
+            sockId: addedSock.data.values.id,
+            userId: user.id,
+          }
+        );
+     
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -157,7 +184,7 @@ console.log(addedSock);
             Добавить в корзину
           </button>
           {/* <button style={{ cursor: "pointer" }}>Добавить в корзину</button> */}
-          <button style={{ cursor: "pointer" }}>Добавить в избранное</button>
+          <button onClick={addToFavorites} style={{ cursor: "pointer" }}>Добавить в избранное</button>
         </div>
       </div>
     </>
