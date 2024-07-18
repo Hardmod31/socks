@@ -49,15 +49,19 @@ function Header() {
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/favorites')}>избранное</button> }
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/createdesign')}>конструктор</button> }
+        { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/logout')}>Выйти</button> }
         { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
         { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/createdesign')}>конструктор</button> }
         { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/homepage')}>главная</button> }
+        { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/logout')}>Выйти</button> }
         { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/favorites')}>избранное</button> }
         { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/createdesign')}>конструктор</button> }
         { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/homepage')}>главная</button> }
+        { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/logout')}>Выйти</button> }
         { pathname === '/createdesign' && <button className="header-btn" onClick={()=>navigate('/favorites')}>избранное</button> }
         { pathname === '/createdesign' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
         { pathname === '/createdesign' && <button className="header-btn" onClick={()=>navigate('/homepage')}>главная</button> }
+        { pathname === '/createdesign' && <button className="header-btn" onClick={()=>navigate('/logout')}>Выйти</button> }
       </nav>
     </div>
   );
