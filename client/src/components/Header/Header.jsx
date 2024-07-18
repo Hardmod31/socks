@@ -46,6 +46,8 @@ function Header() {
         { pathname === '/profile' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }
         { pathname === '/login' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }
         { pathname === '/registration' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }
+        { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
+        { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/editsock')}>конструктор</button> }
       </nav>
     </div>
   );

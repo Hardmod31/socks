@@ -3,10 +3,11 @@ import './HomePage.css';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import Sock from '../../components/Sock/Sock';
+import { getAuthCookies } from '../../utils/utility';
 // import карточки с носками
 
 function HomePage() {
-
+  const { accessToken } = getAuthCookies();
   
   const [presentSock, setPresentSock] = useState([]);
 

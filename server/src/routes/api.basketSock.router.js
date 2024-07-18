@@ -4,15 +4,21 @@
 /* eslint-disable indent */
 const express = require('express');
 const router = express.Router();
-const { Basket } = require('../../db/models/index');
+const { Basket, Sock } = require('../../db/models/index');
 
 router.get('/api/all/basket', async (req, res) => {
     try {
       const { userId } = req.query;
-      const baskets = await Basket.findAll({ where: { userId: userId } });
+      const baskets = await Basket.findAll({ 
+        where: { userId: userId },
+        include: [{
+          model: Sock,
+          attributes: ['id', 'img', 'pattern', 'color', 'price', 'quantity']
+        }]
+      });
       res.json({ baskets, message: 'OK', status: 200});
     } catch (error) {
-        res.json({ message: error, status: 500});
+      res.json({ message: error.message, status: 500});
     }
 });
 

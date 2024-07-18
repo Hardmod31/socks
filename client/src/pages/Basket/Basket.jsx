@@ -38,16 +38,12 @@ export default function Basket() {
   useEffect(() => {
     getAllSocks();
   }, [])
-  
 
   return (
     <div>
       <div className="homeSock">
         <Sock presentSock={presentSock} setPresentSock={setPresentSock} />
       </div>
-      <p className="homeSock">
-        kek
-      </p>
     </div>
   );
 };

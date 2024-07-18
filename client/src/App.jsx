@@ -18,7 +18,6 @@ import HomePage from "./pages/HomePage/HomePage";
 import { setAccessToken } from "./axiosInstance";
 
 
-
 function App() {
   const [user, setUser] = useState();
  
@@ -55,7 +54,7 @@ function App() {
         },
 {
           path: "/favorites",
-          element: 
+          element:
             <Favorites
             user={user} setUser={setUser}
             />
