@@ -5,12 +5,18 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import { useEffect, useState } from "react";
 import Root from "./Root";
+
 import axiosInstance, {setAccessToken} from "./axiosInstance";
+
+import SockDesignGenerator from "./pages/SockDesignGenerator/SockDesignGenerator";
+
 import Favorites from "./pages/Favorites/Favorites";
 import Basket from "./pages/Basket/Basket";
 import SockPage from "./pages/SockPage/SockPage";
 import EditSock from "./components/EditSock/EditSock";
 import HomePage from "./pages/HomePage/HomePage";
+import { setAccessToken } from "./axiosInstance";
+
 
 
 function App() {
@@ -28,7 +34,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root user={user}/>,
+      element: <Root user={user} />,
       children: [
         {
           path: "/login",
@@ -43,6 +49,11 @@ function App() {
           element: <LoginPage user={user} setUser={setUser} />,
         },
         {
+
+          path: "/createdesign",
+          element: <SockDesignGenerator />,
+        },
+{
           path: "/favorites",
           element: 
             <Favorites
@@ -68,6 +79,7 @@ function App() {
         {
           path: "/updateSock/:id",
           element: <EditSock user={user} setUser={setUser}/>,
+
         },
       ],
     },
