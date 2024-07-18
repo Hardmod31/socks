@@ -58,7 +58,7 @@ export default function EditSock() {
             createSock,
             { withCredentials: true }
           );
-          navigate("/");
+          navigate("/homepage");
         } catch (error) {
           console.log(error);
         }
