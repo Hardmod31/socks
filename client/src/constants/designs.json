@@ -1,0 +1,5 @@
+{
+    "color": ["white", "yellow", "#4520ab", "hotpink", "palegreen", "cyan"], 
+    "pattern": ["dots.png", "maths.png", "triangles.png", "stars.png"],
+    "img": ["/duck.png", "/yoda.png", "/cactus.png", "/lama.png"]
+}

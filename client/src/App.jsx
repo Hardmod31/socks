@@ -5,6 +5,8 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import { useEffect, useState } from "react";
 import Root from "./Root";
 import axiosInstance from "./axiosInstance";
+import SockDesignGenerator from "./pages/SockDesignGenerator/SockDesignGenerator";
+
 
 function App() {
   const [user, setUser] = useState();
@@ -19,7 +21,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root user={user}/>,
+      element: <Root user={user} />,
       children: [
         {
           path: "/login",
@@ -32,6 +34,10 @@ function App() {
         {
           path: "/",
           element: <LoginPage user={user} setUser={setUser} />,
+        },
+        {
+          path: "/createdesign",
+          element: <SockDesignGenerator />,
         },
       ],
     },
