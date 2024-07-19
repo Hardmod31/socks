@@ -38,9 +38,27 @@ function HomePage() {
     <div className="homepage">
       <main className="main">
         <div className="welcomeBanner">
+
+
+        <div className="homeheader">
+        <div className="video">
+          <iframe
+            src="https://player.vimeo.com/video/737013334?h=fbd76eaf45&autoplay=1&loop=1&background=1"
+            width="640"
+            height="360"
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowFullScreen
+            title="Vimeo Video"
+          ></iframe>
+        </div>
+     
           <p className="welcomeText">Самое время быть уникальным! Смоделируй свою любимую пару носков!</p>
           <a href="/createdesign" className="sockGeneratorLink">Генератор носков</a>
         </div>
+
+        </div>
+        
         <div className="sockMenu">
           <div className="sockContainerHome">
         <Sock presentSock={presentSock} setPresentSock={setPresentSock}/>
