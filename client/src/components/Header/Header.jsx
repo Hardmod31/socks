@@ -4,10 +4,11 @@ import { getAuthCookies } from "../../utils/utility.js";
 import { jwtDecode } from "jwt-decode";
 import './Header.css';
 import axios from 'axios';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 
 function Header() {
+  const params = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
@@ -49,7 +50,7 @@ function Header() {
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/favorites')}>избранное</button> }
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/createdesign')}>конструктор</button> }
-        { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/logout')}>Выйти</button> }
+        { pathname === '/profile' && <button className="header-btn logout" onClick={logout}>Выйти из учётной записи</button> }
         { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
         { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/createdesign')}>конструктор</button> }
         { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/homepage')}>главная</button> }
