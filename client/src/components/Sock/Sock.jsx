@@ -164,7 +164,6 @@ export default function Sock({presentSock, setPresentSock}) {
             <p className='oneSockP'>{elem.color}</p>
             <p className='oneSockP'>{elem.pattern}</p> */}
             <p className='oneSockP'>{elem.price}</p>
-
             {/* {pathname !== "/basket" && <button onClick={() => addSockToBasket(elem.id)}>в корзину</button>} */}
             {/* {pathname === "/favorites" && <button onClick={() => deleteFavorite(elem.id)}>Удалить</button>} */}
             {/* {pathname !== "/favorites" && <button onClick={() => addToFavorites(elem.id)}>В избранное</button>} */}

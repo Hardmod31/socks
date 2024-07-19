@@ -41,28 +41,25 @@ function Header() {
     <div className={'header'}>
       <div className="logo">Носки, носочки</div>
       <nav className="header-nav">
-        { pathname === '/' && <button className="header-btn" onClick={() => navigate('/profile')}>Личный кабинет</button> }
-        { pathname === '/login' && <button className="header-btn" onClick={() => navigate('/createdesign')}>Создать носок</button> }
-        { pathname === '/profile' && <button className="header-btn" onClick={logout}>Выйти из учётной записи</button> }
-        { pathname === '/profile' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }
+        { pathname === '/' && <button className="header-btn" onClick={() => navigate('/basket')}>Личный кабинет</button> }
         { pathname === '/login' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }
         { pathname === '/registration' && <button className="header-btn" onClick={()=>navigate('/')}>Главная страница</button> }
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/favorites')}>избранное</button> }
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
         { pathname === '/homepage' && <button className="header-btn" onClick={()=>navigate('/createdesign')}>конструктор</button> }
-        { pathname === '/profile' && <button className="header-btn logout" onClick={logout}>Выйти из учётной записи</button> }
+        { pathname === '/homepage' && <button className="header-btn" onClick={logout}>выход</button> }
         { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
         { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/createdesign')}>конструктор</button> }
         { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/homepage')}>главная</button> }
-        { pathname === '/favorites' && <button className="header-btn" onClick={()=>navigate('/logout')}>Выйти</button> }
+        { pathname === '/favorites' && <button className="header-btn" onClick={logout}>выход</button> }
         { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/favorites')}>избранное</button> }
         { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/createdesign')}>конструктор</button> }
         { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/homepage')}>главная</button> }
-        { pathname === '/basket' && <button className="header-btn" onClick={()=>navigate('/logout')}>Выйти</button> }
+        { pathname === '/basket' && <button className="header-btn" onClick={logout}>выход</button> }
         { pathname === '/createdesign' && <button className="header-btn" onClick={()=>navigate('/favorites')}>избранное</button> }
         { pathname === '/createdesign' && <button className="header-btn" onClick={()=>navigate('/basket')}>корзина</button> }
         { pathname === '/createdesign' && <button className="header-btn" onClick={()=>navigate('/homepage')}>главная</button> }
-        { pathname === '/createdesign' && <button className="header-btn" onClick={()=>navigate('/logout')}>Выйти</button> }
+        { pathname === '/createdesign' && <button className="header-btn" onClick={logout}>выход</button> }
       </nav>
     </div>
   );
