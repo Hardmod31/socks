@@ -1,17 +1,11 @@
 .sockTable {
   background-color: rgba(255, 255, 255, 0.493);
-  padding: 10px;
+  padding: 15px;
   margin: 6px;
   width: 150px;
-  height: 350px;
+  height: 220px;
   transition: transform 0.3s ease;
   position: relative;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
 }
 
 .sockTable::before {
@@ -23,7 +17,6 @@
   bottom: 0;
   border: 2px solid transparent;
   pointer-events: none;
-  border-radius: 10px;
 }
 
 .sockTable:hover {
@@ -39,7 +32,7 @@
     border-color: transparent;
   }
   50% {
-    border-color: #0b7dff;
+    border-color: #603913;
   }
 }
 
@@ -68,7 +61,7 @@
 }
 
 .oneSockP {
-  color: #0b7dff;
+  color: #603913;
   font-size: 20px;
   font-weight: bold;
   text-shadow: 1px 1px 2px #000000;
@@ -80,21 +73,21 @@
 .pagination {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-evenly
 }
 
 .sockBtn {
   display: inline-block;
   box-sizing: border-box;
-  margin: 3px;
+  margin: 0;
   outline: none;
-  border: 1px solid #0b7dff;
-  border-radius: 10px;
-  height: 35px;
-  width: 46%;
-  line-height: 1.2;
+  border: 1px solid #603913;
+  border-radius: 5px;
+  height: 25px;
+  width: 30%;
+  line-height: 0;
   text-decoration: none;
-  color: #0b7dff;
+  color: #603913;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
@@ -104,14 +97,12 @@
   appearance: none;
   touch-action: manipulation;
   font-weight: bold;
-  text-align: center;
-  font-size: 12px;
 }
 
 .sockBtn:hover {
   transform: translate(0, -1px);
-  box-shadow: 0 20px 30px 0 #0b7dff;
-  background-color: #0b7dff;
+  box-shadow: 0 20px 30px 0 #603913;
+  background-color: #603913;
   color: rgb(226, 218, 218);
 }
 
@@ -123,8 +114,7 @@
 .flexStroke {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
+  justify-content: center;
 }
 
 .oformit {
@@ -155,25 +145,12 @@
   width: 180px;
   height: 50px;
   position: fixed;
-  right: 350px;
-  bottom: 150px;
-  border: 1px solid #0b7dff;
-  border-radius: 10px;
-  height: 35px;
-  line-height: 1.2;
-  color: #0b7dff;
-  background-color: rgba(255, 255, 255, 0.8);
+  right: 250px;
+  bottom: 200px;
 }
 
 .oformit:hover {
   transform: translate(0, -1px);
-  box-shadow: 0 20px 30px 0 #0b7dff;
-  background-color: #0b7dff;
-  color: rgb(226, 218, 218);
-}
-
-button {
-  margin: 3px 0;
   box-shadow: 0 20px 30px 0 #603913;
   background-color: #603913;
   color: rgb(226, 218, 218);
