@@ -167,16 +167,15 @@ export default function Sock({presentSock, setPresentSock}) {
             <p className='oneSockP'>{elem.price}</p>
             {/* {pathname !== "/basket" && <button onClick={() => addSockToBasket(elem.id)}>в корзину</button>} */}
             {/* {pathname === "/favorites" && <button onClick={() => deleteFavorite(elem.id)}>Удалить</button>} */}
-            {/* {pathname === "/basket" && <button onClick={() => deleteSock(elem.id)}>delete</button>} */}
             {/* {pathname !== "/favorites" && <button onClick={() => addToFavorites(elem.id)}>В избранное</button>} */}
             {/* {pathname === "/basket" && <button onClick={handleUpdate}>Изменить</button>} */}
             {/* {pathname === "/basket" && <button onClick={() => navigate(`/sock/${elem.id}`)}>Детали</button>} */}
-              <div className='flexStroke'>
+              {/* <div className='flexStroke'>
               {pathname === "/basket" && <button className='basketBtn' onClick={deleteFullSock}>Удалить</button>}
               {pathname === "/basket" && <button className='basketBtn1' onClick={() => updateSockQuantity(elem.id, 'increment')}>+</button> }
                 <p className='oneSockP'>{elem.quantity}</p>
                 {pathname === "/basket" && <button className='basketBtn1' onClick={() => updateSockQuantity(elem.id, 'decrement')}>-</button> }
-              </div>
+              </div> */}
           </div>
         </li>
       ))}
@@ -192,7 +191,7 @@ export default function Sock({presentSock, setPresentSock}) {
           <SvgSock color={elem.color} pattern={elem.pattern} img={elem.img}></SvgSock>
             <p className='oneSockP'>{elem.price}</p>
               <div className='flexStroke'>
-              {pathname === "/basket" && <button className='basketBtn' onClick={deleteFullSock}>Удалить</button>}
+              {pathname === "/basket" && <button className='basketBtn' onClick={() => deleteSock(elem.id)}>Удалить</button>}
               {pathname === "/basket" && <button className='basketBtn1' onClick={() => updateSockQuantity(elem.id, 'increment')}>+</button> }
                 <p className='oneSockP'>{elem.quantity}</p>
                 {pathname === "/basket" && <button className='basketBtn1' onClick={() => updateSockQuantity(elem.id, 'decrement')}>-</button> }
