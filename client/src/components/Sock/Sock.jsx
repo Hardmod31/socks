@@ -158,18 +158,18 @@ export default function Sock({presentSock, setPresentSock}) {
             <p className='oneSockP'>{elem.color}</p>
             <p className='oneSockP'>{elem.pattern}</p> */}
             <p className='oneSockP'>{elem.price}</p>
-            {pathname !== "/basket" && <button onClick={() => addSockToBasket(elem.id)}>в корзину</button>}
-            {pathname === "/basket" && <button onClick={() => deleteSock(elem.id)}>delete</button>}
-            {pathname !== "/favorites" && <button onClick={() => addToFavorites(elem.id)}>В избранное</button>}
-            {pathname === "/favorites" && <button onClick={() => deleteFavorite(elem.id)}>Удалить</button>}
-            {pathname !== "/basket" && <button onClick={handleUpdate}>Изменить</button>}
-            {pathname !== "/basket" && <button onClick={deleteFullSock}>Удалить</button>}
-            {pathname !== "/basket" && <button onClick={() => navigate(`/sock/${elem.id}`)}>Детали</button>}
-              <div className='flexStroke'>
-                <button onClick={() => updateSockQuantity(elem.id, 'increment')}>+++</button>
-                <p className='oneSockP'>{elem.quantity}</p>
-                <button onClick={() => updateSockQuantity(elem.id, 'decrement')}>---</button>
-              </div>
+            {pathname !== "/basket" && <button className='sockBtn' onClick={() => addSockToBasket(elem.id)}>В корзину</button>}
+            {pathname === "/basket" && <button className='sockBtn' onClick={() => deleteSock(elem.id)}>Удалить</button>}
+            {pathname !== "/favorites" && <button className='sockBtn' onClick={() => addToFavorites(elem.id)}>В избранное</button>}
+            {pathname === "/favorites" && <button className='sockBtn' onClick={() => deleteFavorite(elem.id)}>Удалить</button>}
+            {pathname !== "/basket" && <button className='sockBtn' onClick={handleUpdate}>Изменить</button>}
+            {pathname !== "/basket" && <button className='sockBtn' onClick={deleteFullSock}>Удалить</button>}
+            {pathname !== "/basket" && <button className='sockBtn' onClick={() => navigate(`/sock/${elem.id}`)}>Детали</button>}
+            <div className='flexStroke'>
+              <button className='sockBtn' onClick={() => updateSockQuantity(elem.id, 'increment')}>+++</button>
+              <p className='oneSockP'>{elem.quantity}</p>
+              <button className='sockBtn' onClick={() => updateSockQuantity(elem.id, 'decrement')}>---</button>
+            </div>
           </div>
         </li>
       ))}

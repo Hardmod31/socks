@@ -1,0 +1,32 @@
+.sockBtn {
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 3px;
+    outline: none;
+    border: 1px solid #0b7dff;
+    border-radius: 20px;
+    height: 35px;
+    width: 46%;
+    line-height: 1.2;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #0b7dff;
+    position: relative;
+    overflow: hidden;
+    vertical-align: top;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    font-weight: bold;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  .sockBtn:hover {
+    transform: translate(0, -1px);
+    box-shadow: 0 20px 30px 0 #0b7dff;
+    background-color: #0056b3;
+    color: #e2dada;
+  }
+  
