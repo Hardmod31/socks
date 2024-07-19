@@ -5,3 +5,36 @@
   height: 700px;
   display: flex;
 }
+
+.images {
+  position: absolute;
+  top: 0;
+  right: 0;
+  animation: slideIn 4s forwards;
+  width: 120px;
+  height: 290px;
+}
+
+.images1 {
+  width: 100px;
+  height: 85px;
+  padding-bottom: 20px;
+  transform: translate(0, -1px);
+}
+
+.images2 {
+  width: 100px;
+  height: 100px;
+  transform: translate(0, -1px);
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%) translateY(-100%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(50%);
+    top: 20%;
+    left: 83%;
+  }
+}
