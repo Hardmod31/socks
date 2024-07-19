@@ -66,11 +66,11 @@ export default function Sock({presentSock, setPresentSock}) {
   };
 
   const addToFavorites = async (sockId) => {
-    const decoded = jwtDecode(accessToken);
+    const decoded = jwtDecode(refreshToken);
     const { user } = decoded;
     try {
         await axios.post(
-          'http://localhost:3000/api/addsocks/favorites',
+          'http://localhost:3000/api/addsock/favorites',
           {
             sockId: sockId,
             userId: user.id,
@@ -83,19 +83,18 @@ export default function Sock({presentSock, setPresentSock}) {
   };
 
   const deleteFavorite = async (sockId) => {
-    const decoded = jwtDecode(accessToken);
+    const decoded = jwtDecode(refreshToken);
     const { user } = decoded;
-     try {
           await axios.delete(
-      'http://localhost:3000/api/delete/favorites',
+      'http://localhost:3000/api/deleteFavorites',
       { 
+        params: {
           sockId: sockId,
           userId: user.id,
+        },
       }
     );
-  } catch (error) {
-   console.error(error);
-  }
+    setPresentSock(presentSock.filter(elem => elem.id !== sockId));
   };
 
   const updateSockQuantity = async (sockId, action) => {
@@ -163,7 +162,7 @@ export default function Sock({presentSock, setPresentSock}) {
             {pathname !== "/favorites" && <button onClick={() => addToFavorites(elem.id)}>В избранное</button>}
             {pathname === "/favorites" && <button onClick={() => deleteFavorite(elem.id)}>Удалить</button>}
             {pathname !== "/basket" && <button onClick={handleUpdate}>Изменить</button>}
-            {pathname !== "/basket" && <button onClick={deleteFullSock}>Удалить</button>}
+            {pathname === "/basket" && <button onClick={deleteFullSock}>Удалить</button>}
             {pathname !== "/basket" && <button onClick={() => navigate(`/sock/${elem.id}`)}>Детали</button>}
               <div className='flexStroke'>
                 <button onClick={() => updateSockQuantity(elem.id, 'increment')}>+++</button>
