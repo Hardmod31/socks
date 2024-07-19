@@ -20,13 +20,15 @@ router.post('/api/addsocks/basket', async (req, res) => {
           return res.status(404).json({ message: 'Sock not found', status: 404 });
         }
 
+
         await Favorite.destroy({ where: { sockId, userId } });
 
-        if (sock.quantity > 0) {
-          await Basket.create({ userId, sockId });
-          sock.quantity -= 1;
-          await sock.save();
-          res.status(200).json({ message: 'ok', status: 200 });
+  
+        if (sockById.quantity > 0) {
+            await Basket.create({ userId, sockId, quantity: 1 });
+            sockById.quantity -= 1;
+            await sockById.save();
+            res.status(200).json({ message: 'ok', status: 200 });
         } else {
           res.status(400).json({ message: 'Sock is out of stock', status: 400 });
         }

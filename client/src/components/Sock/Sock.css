@@ -44,6 +44,14 @@
   padding: 0;
 }
 
+.ulSock1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 1150px;
+  padding: 30px;
+}
+
 .ulSock a {
   text-decoration: none;
 }
@@ -104,15 +112,114 @@
 }
 
 .flexStroke {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .oformit {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #603913;
+  border-radius: 5px;
+  height: 11px;
   width: 80px;
+  line-height: 0;
+  text-decoration: none;
+  color: #603913;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  font-weight: bold;
+  font-size: 15px;
+  align-items: center;
+  display: inline-block;
+  text-align: center;
+  width: 180px;
   height: 50px;
   position: fixed;
-  right: 350px;
-  bottom: 150px;
+  right: 250px;
+  bottom: 200px;
+}
+
+.oformit:hover {
+  transform: translate(0, -1px);
+  box-shadow: 0 20px 30px 0 #603913;
+  background-color: #603913;
+  color: rgb(226, 218, 218);
+}
+
+.basketBtn { 
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #603913;
+  border-radius: 5px;
+  height: 11px;
+  width: 80px;
+  line-height: 0;
+  text-decoration: none;
+  color: #603913;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  font-weight: bold;
+  font-size: 15px;
+  align-items: center;
+  display: inline-block;
+  text-align: center;
+}
+
+.basketBtn:hover {
+  transform: translate(0, -1px);
+  box-shadow: 0 20px 30px 0 #603913;
+  background-color: #603913;
+  color: rgb(226, 218, 218);
+}
+
+.basketBtn1 { 
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #603913;
+  border-radius: 5px;
+  height: 11px;
+  width: 30px;
+  line-height: 0;
+  text-decoration: none;
+  color: #603913;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  font-weight: bold;
+  font-size: 15px;
+  align-items: center;
+  display: inline-block;
+  text-align: center;
+}
+
+.basketBtn1:hover {
+  transform: translate(0, -1px);
+  box-shadow: 0 20px 30px 0 #603913;
+  background-color: #603913;
+  color: rgb(226, 218, 218);
 }
