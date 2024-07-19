@@ -15,7 +15,7 @@ export default function Favorites() {
     const decoded = jwtDecode(accessToken);
     const { user } = decoded;
     axios.get(
-      `http://localhost:3000/api/all/favorites`,
+      `http://localhost:3000/api/allFavorites`,
       { params: { userId: user.id },
        withCredentials: true 
       },
@@ -24,13 +24,13 @@ export default function Favorites() {
       const newData = data.data.sox.map((elem) => {
         return {
           id: elem.id,
-          img: elem.img,
-          pattern: elem.pattern,
-          color: elem.color,
-          price: elem.price,
-          quantity: elem.quantity,
-        };
-      });
+          img: elem.Sock.img,
+          pattern: elem.Sock.pattern,
+          color: elem.Sock.color,
+          price: elem.Sock.price,
+          quantity: elem.Sock.quantity,
+        }
+      })
       setPresentSock(newData);
     })
     .catch((error) => {

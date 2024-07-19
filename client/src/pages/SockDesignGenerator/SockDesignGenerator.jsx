@@ -56,6 +56,15 @@ const SockDesignGenerator = () => {
     });
   };
 
+  
+  const checkIfFavoriteSockExists = async (sockId, userId) => {
+    const response = await axios.post("http://localhost:3000/api/check/favorite", {
+      sockId,
+      userId,
+    });
+  
+    return response.data.exists;
+  };
   const addToFavorites = async () => {
     const decoded = jwtDecode(accessToken);
     const { user } = decoded;
@@ -71,15 +80,22 @@ const SockDesignGenerator = () => {
       },
     });
     try {
-      await axios.post("http://localhost:3000/api/addsocks/favorites", {
+      
+      const favoriteSock = await checkIfFavoriteSockExists(addedSock.data.values.id, user.id);
+      if (favoriteSock) {
+        return favoriteSock;
+      }
+  
+      await axios.post("http://localhost:3000/api/addsock/favorites", {
         sockId: addedSock.data.values.id,
         userId: user.id,
       });
+  
+      return addedSock.data.values;
     } catch (error) {
       console.error(error);
     }
   };
-
   return (
     <>
       <div
