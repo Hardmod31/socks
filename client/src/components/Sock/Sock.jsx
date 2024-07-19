@@ -141,11 +141,12 @@ export default function Sock({presentSock, setPresentSock}) {
       }
     );
     setPresentSock([]);
+    alert('Ваш заказ оформлен успешно')
   };
 
   return (
     <div>
-    {pathname !== "/basket" &&  <ul className='ulSock'>
+    {pathname === "/homepage" &&  <ul className='ulSock'>
       {presentSock.map((elem) => (
         <li 
           className='sockTable'
@@ -200,20 +201,22 @@ export default function Sock({presentSock, setPresentSock}) {
         </li>
       ))}
     </ul> }
-    {pathname === "/favorites" &&  <ul className='ulSock1'>
+    {pathname === "/favorites" &&  <ul className='ulSock2'>
       {presentSock.map((elem) => (
         <li 
-          className='sockTable'
+          className='sockTable1'
           style={{ listStyleType: "none" }}
           key={elem.id}
         >
           <div>
-          <SvgSock color={elem.color} pattern={elem.pattern} img={elem.img}></SvgSock>
-            <p className='oneSockP'>{elem.price}</p>
+            <div className='svgSock'>
+            <SvgSock color={elem.color} pattern={elem.pattern} img={elem.img}></SvgSock>
+            </div>
+            <p className='oneSockP1'>{elem.price}</p>
               <div className='flexStroke'>
                {pathname !== "/favorites" && <button onClick={() => addToFavorites(elem.id)}>В избранное</button>}
-            {pathname === "/favorites" && <button onClick={() => deleteFavorite(elem.id)}>Удалить</button>}
-                <p className='oneSockP'>{elem.quantity}</p>
+            {pathname === "/favorites" && <button className='basketBt3' onClick={() => deleteFavorite(elem.id)}>Удалить</button>}
+                {/* <p className='oneSockP'>{elem.quantity}</p> */}
                 {pathname === "/basket" && <button className='basketBtn1' onClick={() => updateSockQuantity(elem.id, 'decrement')}>-</button> }
               </div>
           </div>

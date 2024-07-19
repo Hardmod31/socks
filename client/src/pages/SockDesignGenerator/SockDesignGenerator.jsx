@@ -4,6 +4,7 @@ import designOptions from "../../constants/designs.json";
 import { getAuthCookies } from "../../utils/utility";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
+import './SockDesignGenerator.css'
 
 const SockDesignGenerator = () => {
   const { accessToken } = getAuthCookies();
@@ -201,13 +202,14 @@ const SockDesignGenerator = () => {
           <div style={{ display: "flex", gap: "4px", marginTop: "auto", height: "80px", }}>
             
             <button
+              className="genBtn"
               onClick={addSockToBasket}
               style={{ cursor: "pointer", width: "94%" }}
             >
               Добавить в корзину
             </button>
             {/* <button style={{ cursor: "pointer" }}>Добавить в корзину</button> */}
-            <button onClick={addToFavorites} style={{ cursor: "pointer", width: "12%"}}>
+            <button className="genBtn" onClick={addToFavorites} style={{ cursor: "pointer", width: "12%"}}>
               💙
             </button>
           </div>

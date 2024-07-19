@@ -22,7 +22,7 @@ function HomePage() {
           img: elem.img,
           pattern: elem.pattern,
           color: elem.color,
-          price: elem.price,
+          // price: elem.price,
           quantity: elem.quantity,
         }
       })
@@ -54,7 +54,7 @@ function HomePage() {
         </div>
      
           <p className="welcomeText">Самое время быть уникальным! Смоделируй свою любимую пару носков!</p>
-          <a href="/createdesign" className="sockGeneratorLink">Генератор носков</a>
+          <a href="/createdesign" className="sockGeneratorLink"><button className='generatorBtn'>Генератор носков</button></a>
         </div>
 
         </div>

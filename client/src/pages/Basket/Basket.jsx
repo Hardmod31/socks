@@ -45,7 +45,7 @@ export default function Basket() {
     const timer = setTimeout(() => {
       audioRef.current.play();
       setShowImage(true);
-    }, 1114000);
+    }, 20000);
 
     return () => clearTimeout(timer);
   }, []);

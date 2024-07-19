@@ -1,6 +1,6 @@
 .parentSock {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
 }
 
 .commentBlock {
@@ -41,13 +41,13 @@
   box-sizing: border-box;
   margin: 15px 15px 15px 0;
   outline: none;
-  border: 1px solid #603913;
+  border: 1px solid #0b7dff;
   border-radius: 5px;
   height: 46px;
   width: 40%;
   line-height: 0;
   text-decoration: none;
-  color: #603913;
+  color: #0b7dff;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
@@ -63,8 +63,8 @@
 
 .oneSockBtn:hover {
   transform: translate(0, -1px);
-  box-shadow: 0 20px 30px 0 #603913;
-  background-color: #603913;
+  box-shadow: 0 20px 30px 0 #0b7dff;
+  background-color: #0b7dff;
   color: rgb(226, 218, 218);
 }
 
@@ -95,7 +95,7 @@
 }
 
 .likeImg:active {
-  transform: scale(1.5)
+  transform: scale(1.5);
 }
 
 .likeImg:active::before {
@@ -125,13 +125,13 @@
   padding: 15px;
   margin: 15px 15px 15px 0;
   outline: none;
-  border: 1px solid #603913;
+  border: 1px solid #0b7dff;
   border-radius: 5px;
   height: 45px;
   width: 70%;
   line-height: 0;
   text-decoration: none;
-  color: #603913;
+  color: #0b7dff;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
@@ -157,13 +157,13 @@
   box-sizing: border-box;
   margin: 15px 15px 15px 0;
   outline: none;
-  border: 1px solid #603913;
+  border: 1px solid #0b7dff;
   border-radius: 5px;
   height: 46px;
   width: 30%;
   line-height: 0;
   text-decoration: none;
-  color: #603913;
+  color: #0b7dff;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
@@ -179,7 +179,7 @@
 
 .commentBtn:hover {
   transform: translate(0, -1px);
-  box-shadow: 0 20px 30px 0 #603913;
-  background-color: #603913;
+  box-shadow: 0 20px 30px 0 #0b7dff;
+  background-color: #0b7dff;
   color: rgb(226, 218, 218);
 }

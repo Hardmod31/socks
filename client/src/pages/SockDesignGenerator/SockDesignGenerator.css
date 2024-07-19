@@ -1,0 +1,31 @@
+.genBtn{
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #0b7dff;
+  border-radius: 5px;
+  line-height: 0;
+  text-decoration: none;
+  color: #0b7dff;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  font-weight: bold;
+  font-size: 25px;
+  align-items: center;
+  display: inline-block;
+  text-align: center;
+}
+
+.genBtn:hover {
+  transform: translate(0, -1px);
+  box-shadow: 0 20px 30px 0 #0b7dff;
+  background-color: #0b7dff;
+  color: rgb(226, 218, 218);
+}

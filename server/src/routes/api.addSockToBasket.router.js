@@ -9,21 +9,15 @@ const { Basket, Sock, Favorite } = require('../../db/models/index');
 router.post('/api/addsocks/basket', async (req, res) => {
     try {
         const { sockId, userId } = req.body.data;
-
         if (!sockId || !userId) {
           return res.status(400).json({ message: 'sockId and userId are required', status: 400 });
         }
-
         const sock = await Sock.findOne({ where: { id: sockId } });
-
         if (!sock) {
           return res.status(404).json({ message: 'Sock not found', status: 404 });
         }
-
-
         await Favorite.destroy({ where: { sockId, userId } });
-
-  
+        const sockById = await Sock.findOne({ where: { id: sockId } });
         if (sockById.quantity > 0) {
             await Basket.create({ userId, sockId, quantity: 1 });
             sockById.quantity -= 1;

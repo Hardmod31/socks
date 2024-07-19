@@ -5,14 +5,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: url('https://example.com/alchemy-background.jpg')no-repeat center center fixed;
+  background: url("https://example.com/alchemy-background.jpg") no-repeat center
+    center fixed;
   background-size: cover;
 }
 
 .regTitle {
   margin-bottom: 30px;
   font-size: 55px;
-  color: #603913;
+  color: #0b7dff;
   text-shadow: 2px 2px 4px #000000;
 }
 
@@ -38,13 +39,13 @@
   padding: 15px;
   margin: 15px 15px 15px 0;
   outline: none;
-  border: 1px solid #603913;
+  border: 1px solid #0b7dff;
   border-radius: 5px;
   height: 45px;
   width: 70%;
   line-height: 0;
   text-decoration: none;
-  color: #603913;
+  color: #0b7dff;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
@@ -63,13 +64,13 @@
   padding: 15px;
   margin: 15px 15px 15px 0;
   outline: none;
-  border: 1px solid #603913;
+  border: 1px solid #0b7dff;
   border-radius: 5px;
   height: 46px;
   width: 100%;
   line-height: 0;
   text-decoration: none;
-  color: #603913;
+  color: #0b7dff;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
@@ -82,6 +83,6 @@
 }
 
 .regBtn:hover {
-  transform: translate(0,-2px);
-  box-shadow: 0 20px 40px 0 #603913;;
+  transform: translate(0, -2px);
+  box-shadow: 0 20px 40px 0 #0b7dff;
 }

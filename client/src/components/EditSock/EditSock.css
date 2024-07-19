@@ -4,13 +4,13 @@
   padding: 15px;
   margin: 15px 15px 15px 0;
   outline: none;
-  border: 1px solid #603913;
+  border: 1px solid #0b7dff;
   border-radius: 5px;
   height: 45px;
   width: 70%;
   line-height: 0;
   text-decoration: none;
-  color: #603913;
+  color: #0b7dff;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
@@ -29,13 +29,13 @@
   padding: 15px;
   margin: 15px 15px 15px 0;
   outline: none;
-  border: 1px solid #603913;
+  border: 1px solid #0b7dff;
   border-radius: 5px;
   height: 45px;
   width: 70%;
   line-height: 0;
   text-decoration: none;
-  color: #603913;
+  color: #0b7dff;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
@@ -49,7 +49,7 @@
 }
 
 .editTitle {
-  color: #603913;
+  color: #0b7dff;
   max-height: 40px;
   font-size: 40px;
   font-weight: bold;
@@ -76,13 +76,13 @@
   margin-top: 15px;
   margin-bottom: 15px;
   outline: none;
-  border: 1px solid #603913;
+  border: 1px solid #0b7dff;
   border-radius: 5px;
   height: 46px;
   width: 30%;
   line-height: 0;
   text-decoration: none;
-  color: #603913;
+  color: #0b7dff;
   background-color: rgba(255, 255, 255, 0.8);
   position: relative;
   overflow: hidden;
@@ -98,7 +98,7 @@
 
 .editBtn:hover {
   transform: translate(0, -2px);
-  box-shadow: 0 20px 30px 0 #603913;
-  background-color: #603913;
+  box-shadow: 0 20px 30px 0 #0b7dff;
+  background-color: #0b7dff;
   color: rgb(226, 218, 218);
 }
