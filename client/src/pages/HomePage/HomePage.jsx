@@ -42,8 +42,8 @@ function HomePage() {
           <a href="/createdesign" className="sockGeneratorLink">Генератор носков</a>
         </div>
         <div className="sockMenu">
-          <div className="sockContainer">
-        <Sock presentSock={presentSock} setPresentSock={setPresentSock} />
+          <div className="sockContainerHome">
+        <Sock presentSock={presentSock} setPresentSock={setPresentSock}/>
           </div>
         </div>
       </main>

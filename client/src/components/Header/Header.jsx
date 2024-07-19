@@ -4,10 +4,11 @@ import { getAuthCookies } from "../../utils/utility.js";
 import { jwtDecode } from "jwt-decode";
 import './Header.css';
 import axios from 'axios';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 
 function Header() {
+  const params = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;

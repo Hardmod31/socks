@@ -12,7 +12,6 @@ const SockDesignGenerator = () => {
   const [color, setColor] = useState({ name: "fff", price: 0 });
   const [pattern, setPattern] = useState({});
   const [img, setImg] = useState("");
-  const [presentSock, setPresentSock] = useState([]);
 
   const price =
     500 + ((color.price || 0) + (pattern.price || 0) + (img.price || 0));
@@ -36,14 +35,6 @@ const SockDesignGenerator = () => {
     setImg("");
   };
 
-  // const addToCartHandler = async (e) => {
-  //   e.preventDefault();
-  //   const response = await axiosInstance.post(
-  //     `http://localhost:3000/api/addsocks/basket`,
-  //     { sockId: sock.id, userId: user.id }
-  //   );
-  // };
-
   const addSockToBasket = async () => {
     const decoded = jwtDecode(accessToken);
     const { user } = decoded;
@@ -66,6 +57,15 @@ const SockDesignGenerator = () => {
     });
   };
 
+  
+  const checkIfFavoriteSockExists = async (sockId, userId) => {
+    const response = await axios.post("http://localhost:3000/api/check/favorite", {
+      sockId,
+      userId,
+    });
+  
+    return response.data.exists;
+  };
   const addToFavorites = async () => {
     const decoded = jwtDecode(accessToken);
     const { user } = decoded;
@@ -81,45 +81,48 @@ const SockDesignGenerator = () => {
       },
     });
     try {
-      await axios.post("http://localhost:3000/api/addsocks/favorites", {
+      
+      const favoriteSock = await checkIfFavoriteSockExists(addedSock.data.values.id, user.id);
+      if (favoriteSock) {
+        return favoriteSock;
+      }
+  
+      await axios.post("http://localhost:3000/api/addsock/favorites", {
         sockId: addedSock.data.values.id,
         userId: user.id,
       });
+  
+      return addedSock.data.values;
     } catch (error) {
       console.error(error);
     }
   };
-
   return (
     <>
       <div
         style={{
           display: "flex",
-          gap: "200px",
+          gap: "300px",
           alignItems: "center",
-          marginTop: "150px",
+          margin: "200px 50px 200px 50px",
           // backgroundColor: "lightcyan",
           justifyContent: "center",
         }}
       >
-        <div style={{ height: "400px", width: "400px" }}>
+        <div style={{ height: "720px", width: "600px" }}>
           <SvgSock color={color.name} pattern={pattern.name} img={img.name} />
         </div>
 
-        {/* <label>
-        Цвет:
-        <input type="color" value={color} onChange={colorHandler} />
-      </label> */}
-
-        {/* <select name="color" onChange={colorHandler}>
-        {designOptions.color.map((item) => (
-          <option value={item}>цвет</option>
-        ))}
-      </select> */}
-
-        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            height: "700px",
+          }}
+        >
           <label> Выберите цвет:</label>
-          <div style={{ display: "flex", gap: "10px" }}>
+          <div style={{ display: "flex", gap: "10px", marginBottom: "20px"  }}>
             {designOptions.color.map((colorOption) => (
               <div
                 onClick={() => colorHandler(colorOption)}
@@ -137,7 +140,7 @@ const SockDesignGenerator = () => {
           </div>
 
           <label> Выберите узор:</label>
-          <div style={{ display: "flex", gap: "10px" }}>
+          <div style={{ display: "flex", gap: "10px", marginBottom: "20px"  }}>
             {designOptions.pattern.map((patternOption) => (
               <div
                 onClick={() => patternHandler(patternOption)}
@@ -147,8 +150,8 @@ const SockDesignGenerator = () => {
                   border:
                     pattern === patternOption ? "solid black" : "solid #ccc",
                   borderRadius: "8px",
-                  width: "100px",
-                  height: "50px",
+                  width: "150px",
+                  height: "70px",
                   cursor: "pointer",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
@@ -159,7 +162,15 @@ const SockDesignGenerator = () => {
           </div>
 
           <label> Выберите изображение:</label>
-          <div style={{ display: "flex", gap: "10px" }}>
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              maxWidth: "654px",
+              flexWrap: "wrap",
+              marginBottom: "10px",
+            }}
+          >
             {designOptions.img.map((imgOption) => (
               <div
                 onClick={() => imgHandler(imgOption)}
@@ -168,8 +179,8 @@ const SockDesignGenerator = () => {
                   // border: "solid",
                   border: img === imgOption ? "solid black" : "solid #ccc",
                   borderRadius: "8px",
-                  width: "100px",
-                  height: "50px",
+                  width: "150px",
+                  height: "70px",
                   cursor: "pointer",
                   backgroundSize: "contain",
                   backgroundPosition: "center",
@@ -189,7 +200,8 @@ const SockDesignGenerator = () => {
           <div>Срок изготовления: 3 дня</div>
           <div>Итоговая стоимость: {price} ₽</div>
 
-          <div style={{ display: "flex", gap: "3px" }}>
+          <div style={{ display: "flex", gap: "4px", marginTop: "auto", height: "80px", }}>
+            
             <button
               onClick={addSockToBasket}
               className="sockBtn"

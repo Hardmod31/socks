@@ -1,5 +1,5 @@
 {
     "color": [{"price": 0, "name":"white"}, {"price": 50, "name":"yellow"}, {"price": 50, "name":"#4520ab"}, {"price": 50, "name":"hotpink"}, {"price": 50, "name":"palegreen"}, {"price": 50, "name":"cyan"}], 
     "pattern": [{"price": 100, "name":"dots.png"}, {"price": 100, "name":"maths.png"}, {"price": 100, "name":"triangles.png"}, {"price": 100, "name":"stars.png"}],
-    "img": [{"price": 150, "name":"/duck.png"}, {"price": 150, "name":"/yoda.png"}, {"price": 150,"name":"/cactus.png"}, {"price": 150, "name":"/lama.png"}]
+    "img": [{"price": 150, "name":"/duck.png"}, {"price": 150, "name":"/yoda.png"}, {"price": 150,"name":"/cactus.png"}, {"price": 150, "name":"/lama.png"}, {"price": 250, "name":"/cat.png"}, {"price": 250, "name":"/pepe.png"}, {"price": 250,"name":"/rock.png"}, {"price": 250, "name":"/shrek.png"}]
 }
