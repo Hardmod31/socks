@@ -21,7 +21,7 @@ router.post('/api/addsocks/basket', async (req, res) => {
         }
 
         if (sockById.quantity > 0) {
-            await Basket.create({ userId, sockId });
+            await Basket.create({ userId, sockId, quantity: 1 });
             sockById.quantity -= 1;
             await sockById.save();
             res.status(200).json({ message: 'ok', status: 200 });
